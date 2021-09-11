@@ -1,0 +1,30 @@
+drop database orderdb;
+create schema `orderdb`;
+use `orderdb`;
+
+create table orders(
+orderid integer,
+buyerid varchar(50),
+amount double,
+orderdate date,
+address varchar(100),
+status varchar(50));
+
+insert into orders values(100,'B1',1500,'2020-05-12','Mysore','Order Placed Successfully');
+insert into orders values(101,'B2',1000,'2020-10-08','Banglore','Order Placed Successfully');
+insert into orders values(102,'B3',800,'2020-01-05','Mumbai','Order Placed Successfully');
+
+select * from orders;
+
+create table productsordered(
+buyerid varchar(50),
+prodid varchar(50),
+sellerid integer,
+quantity integer,
+primary key(buyerid,prodid));
+
+insert into productsordered values('B1','P1',1,2);
+insert into productsordered values('B2','P2',2,3);
+insert into productsordered values('B3','P3',3,1);
+
+select * from productsordered;
